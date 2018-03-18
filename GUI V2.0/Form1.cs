@@ -63,6 +63,7 @@ namespace GUI_V2._0
             initialise.stagestart(this);
             progressBarStageInit.Value = 100;
             buttonInitStage.Enabled = false;
+            buttonInitAll.Enabled = false;
             buttonDoAll.Enabled = false;
             Application.DoEvents();
         }
@@ -108,7 +109,8 @@ namespace GUI_V2._0
         private void buttonSaveEQ_Click(object sender, EventArgs e)
         {
             processing.SaveEq(this);
-            textBox_EQStatus.Text = String.Format("Equilibrium saved");        
+            textBox_EQStatus.Text = String.Format("Equilibrium saved");
+            buttonSaveEQ.Enabled = false;
         }
 
         private void buttonDoAll_Click(object sender, EventArgs e)
@@ -118,13 +120,27 @@ namespace GUI_V2._0
             buttonSaveEQ_Click(null, EventArgs.Empty);
         }
 
-        private void buttonSDown_Click(object sender, EventArgs e)
+        private void buttonDisconnect_Click(object sender, EventArgs e)
         {
             sDown.ShutDown(this);
             MessageBoxButtons buttons = MessageBoxButtons.OK;
             DialogResult result;
-            result = MessageBox.Show("ShutDown Complete","ShutDown Complete", buttons);
-            this.Close();
+            result = MessageBox.Show("Disconnect Complete","Disconnect Complete", buttons);
+
+            buttonInitStage.Enabled = true; buttonInitAll.Enabled = true; buttonInitSpec.Enabled = true; buttonInitLaser.Enabled = true;
+            buttonDoAll.Enabled = true;
+            buttonFindEQ.Enabled = true;
+
+            progressBarEQ.Value = 0;
+            progressBarStageInit.Value = 0; progressInitLaser.Value = 0; progressInitSpec.Value = 0;
+
+            TestBox_StagePosition.Text = "Not Initialised";
+            Textbox_EQCALC.Text = "Not Calculated";
+            textBox_EQStatus.Text = "EQ Find not started";
+            textBox_EQMeas.Text = "0";            
+
+            processing.SetEq(this);
+            zPositions = processing.stagePosArray(this); 
         }
 
         private void buttonLaserOn_Click(object sender, EventArgs e)
@@ -141,6 +157,14 @@ namespace GUI_V2._0
         {
 
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            sDown.ShutDown(this);
+            Application.DoEvents();
+        }
+
+
     }
 }
 

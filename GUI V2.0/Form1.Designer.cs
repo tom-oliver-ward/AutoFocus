@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSDown = new System.Windows.Forms.Button();
+            this.buttonDisconnect = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_EQMeas = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,16 +54,16 @@
             this.buttonLaserOff = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // buttonSDown
+            // buttonDisconnect
             // 
-            this.buttonSDown.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonSDown.Location = new System.Drawing.Point(12, 265);
-            this.buttonSDown.Name = "buttonSDown";
-            this.buttonSDown.Size = new System.Drawing.Size(649, 42);
-            this.buttonSDown.TabIndex = 56;
-            this.buttonSDown.Text = "Shutdown All";
-            this.buttonSDown.UseVisualStyleBackColor = true;
-            this.buttonSDown.Click += new System.EventHandler(this.buttonSDown_Click);
+            this.buttonDisconnect.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonDisconnect.Location = new System.Drawing.Point(12, 265);
+            this.buttonDisconnect.Name = "buttonDisconnect";
+            this.buttonDisconnect.Size = new System.Drawing.Size(649, 42);
+            this.buttonDisconnect.TabIndex = 56;
+            this.buttonDisconnect.Text = "Disconnect && Reset";
+            this.buttonDisconnect.UseVisualStyleBackColor = true;
+            this.buttonDisconnect.Click += new System.EventHandler(this.buttonDisconnect_Click);
             // 
             // label5
             // 
@@ -282,7 +282,7 @@
             this.ClientSize = new System.Drawing.Size(685, 332);
             this.Controls.Add(this.buttonLaserOff);
             this.Controls.Add(this.buttonLaserOn);
-            this.Controls.Add(this.buttonSDown);
+            this.Controls.Add(this.buttonDisconnect);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox_EQMeas);
             this.Controls.Add(this.label4);
@@ -306,6 +306,7 @@
             this.Controls.Add(this.buttonInitAll);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -314,7 +315,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonSDown;
+        private System.Windows.Forms.Button buttonDisconnect;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonDoAll;
