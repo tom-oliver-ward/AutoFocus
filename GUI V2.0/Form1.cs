@@ -136,6 +136,11 @@ namespace GUI_V2._0
         {
             controls.LaserSet(laserOff, spfc[2], spfc[3], spfc[1], this);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -112,8 +112,8 @@ namespace GUI_V2._0
             int intensSum = 0;
             int stop;
 
-            pos = input.IndexOf("276;");               //finds the point where the 1750 data point is
-            for (int i = 0; i < 21; i++)            //for 21 data points
+            pos = input.IndexOf("895;");               //finds the point where the 1750 data point is
+            for (int i = 0; i < 19; i++)            //for 21 data points
             {
                 pos = input.IndexOf(";", pos) + 1;   //finds position of start of intensity value
                 stop = input.IndexOf("\n", pos);       //finds end of intensity value
@@ -155,13 +155,13 @@ namespace GUI_V2._0
                     Application.DoEvents();
                 }
                 //Test if equilibrium point is below lowest point so far - ie lowest data point is most intense
-                else if (Data[0] > Data[2])
+                else if (Data[0] > Data[2] && zPositions[0] >0)
                 {                    
                     bool up = false;    //most intense point is below hence pass up as false through
                     FocalPoint=SpectraIteration(zPositions,Data, form1, FocalPoint,j, up);                    
                 }
                 //Test if equilibrium point is below highest point so far - ie lowest data point is most intense
-                else if (Data[0] < Data[2])
+                else if (Data[0] < Data[2] && zPositions[2]< form1.stageMax * form1.motorFactor)
                 {
                     bool up = true;     //most intense point is above hence pass up as true through
                     FocalPoint = SpectraIteration(zPositions, Data, form1, FocalPoint, j, up);                    

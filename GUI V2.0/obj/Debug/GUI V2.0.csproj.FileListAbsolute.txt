@@ -29,6 +29,3 @@ C:\Users\chemist_user\Desktop\TW Software\New GUI\GUI V2.0\GUI V2.0\obj\Debug\GU
 C:\Users\chemist_user\Desktop\TW Software\New GUI\GUI V2.0\GUI V2.0\obj\Debug\GUI V2.0.csproj.CoreCompileInputs.cache
 C:\Users\chemist_user\Desktop\TW Software\New GUI\GUI V2.0\GUI V2.0\obj\Debug\GUI V2.0.exe
 C:\Users\chemist_user\Desktop\TW Software\New GUI\GUI V2.0\GUI V2.0\obj\Debug\GUI V2.0.pdb
-C:\Users\twar313\Documents\GitHub\AutoFocus\GUI V2.0\GUI V2.0\bin\Debug\GUI V2.0.exe.config
-C:\Users\twar313\Documents\GitHub\AutoFocus\GUI V2.0\GUI V2.0\obj\Debug\GUI V2.0.exe
-C:\Users\twar313\Documents\GitHub\AutoFocus\GUI V2.0\GUI V2.0\obj\Debug\GUI V2.0.pdb
