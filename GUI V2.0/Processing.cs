@@ -136,6 +136,7 @@ namespace GUI_V2._0
         /// <param name="Data"> average intensity array</param>
         internal void FocusFound(Form1 formObject, double[] zPositions, double[] Data)
         {
+            focusFound = false;
             Form1 form1 = formObject;    
             int j = 3;                                          //count variable
             FocalPoint = FitPolynomial(zPositions, Data);       //Find the maxima

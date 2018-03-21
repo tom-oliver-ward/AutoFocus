@@ -32,6 +32,7 @@ namespace GUI_V2._0
         public int motorFactor = 34304;
         public int stageMax = 25;
         public int stageMin = 0;
+        public bool reset = false;
         
         /// <summary>
         /// Initialisation of forms & initial functions to set equilibrium position and setup initial equilibrium finding position array
@@ -45,6 +46,7 @@ namespace GUI_V2._0
             buttonSaveEQ.Enabled = false;
             buttonLaserOn.Enabled = false;
             buttonLaserOff.Enabled = false;
+            buttonDisconnect.Enabled = false;
 
             //Preliminary functions to get initial variable for the equilibrium position and the resulting array of positions for the first spectra
             processing.SetEq(this);
@@ -65,6 +67,7 @@ namespace GUI_V2._0
             buttonInitStage.Enabled = false;
             buttonInitAll.Enabled = false;
             buttonDoAll.Enabled = false;
+            buttonDisconnect.Enabled = true;
             Application.DoEvents();
         }
 
@@ -77,8 +80,18 @@ namespace GUI_V2._0
             initialise.SpecTemp(this);                             
             progressInitSpec.Value = 100;
             buttonInitSpec.Enabled = false;
-            buttonInitLaser.Enabled = true;
-            buttonDoAll.Enabled = false;
+            if (reset==true)
+            {
+                buttonFindEQ.Enabled = true;
+                buttonLaserOn.Enabled = true;
+                buttonLaserOff.Enabled = true;
+            }
+            else
+            {
+                buttonInitLaser.Enabled = true;
+                buttonDoAll.Enabled = false;
+            }
+            buttonDisconnect.Enabled = true;
         }
 
         private void buttonInitLaser_Click(object sender, EventArgs e)
@@ -127,18 +140,27 @@ namespace GUI_V2._0
             DialogResult result;
             result = MessageBox.Show("Disconnect Complete","Disconnect Complete", buttons);
 
-            buttonInitSpec.Enabled = true; buttonInitLaser.Enabled = true; 
+            buttonInitSpec.Enabled = true;
+            buttonInitLaser.Enabled = false;
+            buttonInitStage.Enabled = false;
+            buttonInitAll.Enabled = false;
+            buttonDoAll.Enabled = false;
+            buttonFindEQ.Enabled = false;
+            buttonSaveEQ.Enabled = false;
 
             progressBarEQ.Value = 0;
-            progressBarStageInit.Value = 0; progressInitLaser.Value = 0; progressInitSpec.Value = 0;
+            progressInitSpec.Value = 0;
+            buttonLaserOn.Enabled = false;
+            buttonLaserOff.Enabled = false;
 
-            TestBox_StagePosition.Text = "Not Initialised";
+            
             Textbox_EQCALC.Text = "Not Calculated";
             textBox_EQStatus.Text = "EQ Find not started";
             textBox_EQMeas.Text = "0";            
 
             processing.SetEq(this);
-            zPositions = processing.stagePosArray(this); 
+            zPositions = processing.stagePosArray(this);
+            reset = true;
         }
 
         private void buttonLaserOn_Click(object sender, EventArgs e)
