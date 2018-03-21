@@ -36,7 +36,7 @@ namespace GUI_V2._0
         /// <summary>
         /// closes down the spectrometer
         /// </summary>
-        static void specclose()
+        internal void specclose()
         {
             Spectrometer.bwtekCloseUSB(0);
             int y = Spectrometer.CloseDevices();

@@ -122,14 +122,12 @@ namespace GUI_V2._0
 
         private void buttonDisconnect_Click(object sender, EventArgs e)
         {
-            sDown.ShutDown(this);
+            sDown.specclose();
             MessageBoxButtons buttons = MessageBoxButtons.OK;
             DialogResult result;
             result = MessageBox.Show("Disconnect Complete","Disconnect Complete", buttons);
 
-            buttonInitStage.Enabled = true; buttonInitAll.Enabled = true; buttonInitSpec.Enabled = true; buttonInitLaser.Enabled = true;
-            buttonDoAll.Enabled = true;
-            buttonFindEQ.Enabled = true;
+            buttonInitSpec.Enabled = true; buttonInitLaser.Enabled = true; 
 
             progressBarEQ.Value = 0;
             progressBarStageInit.Value = 0; progressInitLaser.Value = 0; progressInitSpec.Value = 0;
