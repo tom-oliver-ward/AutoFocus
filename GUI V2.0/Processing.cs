@@ -37,14 +37,13 @@ namespace GUI_V2._0
                 double[] posspec = { equil - form1.space * form1.motorFactor, equil, (equil + form1.space * form1.motorFactor) };
                 positions = posspec;
             }
-            else if (equil < form1.space * form1.motorFactor)                     //Checking for a zero error due to equilibrium position being too low
+            else if (equil <= form1.space * form1.motorFactor)                     //Checking for a zero error due to equilibrium position being too low
             {
                 //if min error then set to 0, space, space*2
                 double[] posspec = { 0, form1.space * form1.motorFactor, form1.space * form1.motorFactor*2 };
                 positions = posspec;
             }
-            else if (equil < (
-                -form1.space) * form1.motorFactor)                    //Checking for a maximum error due to equilibrium position being too high
+            else if (equil >= (form1.stageMax-form1.space) * form1.motorFactor)                    //Checking for a maximum error due to equilibrium position being too high
             {
                 //if max see min but subtracted from 25
                 double[] posspec = { (form1.stageMax - form1.space*2) * form1.motorFactor, (form1.stageMax - form1.space) * form1.motorFactor, form1.stageMax * form1.motorFactor };
@@ -321,7 +320,14 @@ namespace GUI_V2._0
                 string targetS = targetC.ToString();                                    //converts back to a string for compatibility with stage ffunctions
                 form1.arg[1] = targetS;
                 tr.Close();                                                     //closes the text reader stream
-                form1.textBox_EQ.Text = line.Substring(0, 5);
+                if (line.Length>5)
+                {
+                    form1.textBox_EQ.Text = line.Substring(0, 5);
+                }
+                else
+                {
+                    form1.textBox_EQ.Text = line;
+                }
             }
             catch
             {
