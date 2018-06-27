@@ -50,3 +50,13 @@ C:\Users\chemist_user\Documents\GitHub\AutoFocus\GUI V2.0\obj\Debug\GUI V2.0.csp
 C:\Users\chemist_user\Documents\GitHub\AutoFocus\GUI V2.0\obj\Debug\GUI V2.0.csproj.CoreCompileInputs.cache
 C:\Users\chemist_user\Documents\GitHub\AutoFocus\GUI V2.0\obj\Debug\GUI V2.0.exe
 C:\Users\chemist_user\Documents\GitHub\AutoFocus\GUI V2.0\obj\Debug\GUI V2.0.pdb
+C:\Users\tom2s\Documents\GitHub\AutoFocus\GUI V2.0\bin\Debug\GUI V2.0.exe.config
+C:\Users\tom2s\Documents\GitHub\AutoFocus\GUI V2.0\obj\Debug\GUI V2.0.exe
+C:\Users\tom2s\Documents\GitHub\AutoFocus\GUI V2.0\obj\Debug\GUI V2.0.pdb
+C:\Users\tom2s\Documents\GitHub\AutoFocus\GUI V2.0\bin\Debug\GUI V2.0.exe
+C:\Users\tom2s\Documents\GitHub\AutoFocus\GUI V2.0\bin\Debug\GUI V2.0.pdb
+C:\Users\tom2s\Documents\GitHub\AutoFocus\GUI V2.0\bin\Debug\MathNet.Numerics.xml
+C:\Users\tom2s\Documents\GitHub\AutoFocus\GUI V2.0\obj\Debug\GUI V2.0.csprojResolveAssemblyReference.cache
+C:\Users\tom2s\Documents\GitHub\AutoFocus\GUI V2.0\obj\Debug\GUI_V2._0.Form1.resources
+C:\Users\tom2s\Documents\GitHub\AutoFocus\GUI V2.0\obj\Debug\GUI_V2._0.Properties.Resources.resources
+C:\Users\tom2s\Documents\GitHub\AutoFocus\GUI V2.0\obj\Debug\GUI V2.0.csproj.GenerateResource.Cache

@@ -188,13 +188,13 @@ namespace GUI_V2._0
         }
 
         private void textBox_WavelengthLength_TextChanged(object sender, EventArgs e)
-        {
+        {            
             wavelengthLength = Convert.ToInt32(textBox_WavelengthLength.Text) -2;
         }
 
         private void textbox_WavelengthStart_TextChanged(object sender, EventArgs e)
         {
-            wavelengthStart = textbox_WavelengthStart.Text + ";";            
+            wavelengthStart = Convert.ToInt32(textbox_WavelengthStart.Text)-1 + ";";            
         }
 
 
