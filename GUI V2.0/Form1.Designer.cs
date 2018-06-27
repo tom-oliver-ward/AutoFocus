@@ -52,12 +52,16 @@
             this.buttonInitAll = new System.Windows.Forms.Button();
             this.buttonLaserOn = new System.Windows.Forms.Button();
             this.buttonLaserOff = new System.Windows.Forms.Button();
+            this.textbox_WavelengthStart = new System.Windows.Forms.TextBox();
+            this.textBox_WavelengthLength = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonDisconnect
             // 
             this.buttonDisconnect.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonDisconnect.Location = new System.Drawing.Point(12, 265);
+            this.buttonDisconnect.Location = new System.Drawing.Point(12, 315);
             this.buttonDisconnect.Name = "buttonDisconnect";
             this.buttonDisconnect.Size = new System.Drawing.Size(649, 42);
             this.buttonDisconnect.TabIndex = 56;
@@ -103,7 +107,7 @@
             // 
             // buttonDoAll
             // 
-            this.buttonDoAll.Location = new System.Drawing.Point(12, 217);
+            this.buttonDoAll.Location = new System.Drawing.Point(12, 267);
             this.buttonDoAll.Name = "buttonDoAll";
             this.buttonDoAll.Size = new System.Drawing.Size(649, 42);
             this.buttonDoAll.TabIndex = 51;
@@ -275,11 +279,51 @@
             this.buttonLaserOff.UseVisualStyleBackColor = true;
             this.buttonLaserOff.Click += new System.EventHandler(this.buttonLaserOff_Click);
             // 
+            // textbox_WavelengthStart
+            // 
+            this.textbox_WavelengthStart.Location = new System.Drawing.Point(23, 198);
+            this.textbox_WavelengthStart.Name = "textbox_WavelengthStart";
+            this.textbox_WavelengthStart.Size = new System.Drawing.Size(165, 20);
+            this.textbox_WavelengthStart.TabIndex = 59;
+            this.textbox_WavelengthStart.Text = "895";
+            this.textbox_WavelengthStart.TextChanged += new System.EventHandler(this.textbox_WavelengthStart_TextChanged);
+            // 
+            // textBox_WavelengthLength
+            // 
+            this.textBox_WavelengthLength.Location = new System.Drawing.Point(23, 236);
+            this.textBox_WavelengthLength.Name = "textBox_WavelengthLength";
+            this.textBox_WavelengthLength.Size = new System.Drawing.Size(165, 20);
+            this.textBox_WavelengthLength.TabIndex = 60;
+            this.textBox_WavelengthLength.Text = "21";
+            this.textBox_WavelengthLength.TextChanged += new System.EventHandler(this.textBox_WavelengthLength_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 183);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(113, 13);
+            this.label6.TabIndex = 61;
+            this.label6.Text = "Wavelength Start (nm)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 221);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 13);
+            this.label7.TabIndex = 62;
+            this.label7.Text = "Wavelength Range Length (nm)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 332);
+            this.ClientSize = new System.Drawing.Size(685, 369);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox_WavelengthLength);
+            this.Controls.Add(this.textbox_WavelengthStart);
             this.Controls.Add(this.buttonLaserOff);
             this.Controls.Add(this.buttonLaserOn);
             this.Controls.Add(this.buttonDisconnect);
@@ -339,6 +383,10 @@
         public System.Windows.Forms.TextBox textBox_EQMeas;
         private System.Windows.Forms.Button buttonLaserOn;
         private System.Windows.Forms.Button buttonLaserOff;
+        public System.Windows.Forms.TextBox textbox_WavelengthStart;
+        public System.Windows.Forms.TextBox textBox_WavelengthLength;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
 
     }
 }

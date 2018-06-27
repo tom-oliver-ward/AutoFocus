@@ -85,13 +85,13 @@ namespace GUI_V2._0
         /// Opens up each spectra and processes it to return the average intensity values at the selected range of wavelengths.
         /// </summary>
         /// <returns></returns>
-        internal double[] specRead()
+        internal double[] specRead(Form1 form1)
         {
             double[] Data = new double[3]; 
             for (int i = 0; i < 3; i++)                       //for each of three spectra
             {
                 string Filename = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Spectra", i);   //Spectra filename
-                double output = ReadFile(Filename);             //Reads and extracts important data from spectrum - extracting average values
+                double output = ReadFile(Filename, form1);             //Reads and extracts important data from spectrum - extracting average values
                 Data[i] = output;                               //Puts each point into a data array
             }
             return Data;                                        //return the average intensity values at the selected range of wavelengths.
@@ -102,7 +102,7 @@ namespace GUI_V2._0
         /// </summary>
         /// <param name="Filename"> Spectra name</param>
         /// <returns>average intensity</returns>
-        private double ReadFile(string Filename)
+        private double ReadFile(string Filename, Form1 form1)
         {
             String input = File.ReadAllText(Filename);
 
@@ -111,8 +111,8 @@ namespace GUI_V2._0
             int intensSum = 0;
             int stop;
 
-            pos = input.IndexOf("895;");               //finds the point where the 1750 data point is
-            for (int i = 0; i < 19; i++)            //for 21 data points
+            pos = input.IndexOf(form1.wavelengthStart);               //finds the point where the 1750 data point is
+            for (int i = 0; i < form1.wavelengthLength; i++)            //for 21 data points
             {
                 pos = input.IndexOf(";", pos) + 1;   //finds position of start of intensity value
                 stop = input.IndexOf("\n", pos);       //finds end of intensity value
@@ -205,12 +205,12 @@ namespace GUI_V2._0
                 if (up==false)
                 {
                     zPositions[2] = zPositions[1]; zPositions[1] = zPositions[0]; zPositions[0] = newPos;
-                    Data[2] = Data[1]; Data[1] = Data[0]; Data[0] = ReadFile(String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Spectra", j));
+                    Data[2] = Data[1]; Data[1] = Data[0]; Data[0] = ReadFile(String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Spectra", j),form1);
                 }
                 else
                 {
                     zPositions[0] = zPositions[1]; zPositions[1] = zPositions[2]; zPositions[2] = newPos;
-                    Data[0] = Data[1]; Data[1] = Data[2]; Data[2] = ReadFile(String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Spectra", j));
+                    Data[0] = Data[1]; Data[1] = Data[2]; Data[2] = ReadFile(String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Spectra", j),form1);
                 }                
                 FocalPoint = FitPolynomial(zPositions, Data);              //Fits Polynomial to new stage position (x) and intensity (y) arrays
             }

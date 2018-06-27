@@ -33,6 +33,9 @@ namespace GUI_V2._0
         public int stageMax = 25;
         public int stageMin = 0;
         public bool reset = false;
+        public string wavelengthStart = "895;";
+        public string wavelengthEnd;
+        public int wavelengthLength = 19;
         
         /// <summary>
         /// Initialisation of forms & initial functions to set equilibrium position and setup initial equilibrium finding position array
@@ -111,7 +114,7 @@ namespace GUI_V2._0
             buttonLaserOn.Enabled = false;
             buttonLaserOff.Enabled = false;
             processing.stageiteration(this, zPositions);
-            double [] Data = processing.specRead();            
+            double [] Data = processing.specRead(this);            
             processing.FocusFound(this, zPositions, Data);
             buttonFindEQ.Enabled = false;
             buttonSaveEQ.Enabled = true;
@@ -182,6 +185,16 @@ namespace GUI_V2._0
         {
             sDown.ShutDown(this);
             Application.DoEvents();
+        }
+
+        private void textBox_WavelengthLength_TextChanged(object sender, EventArgs e)
+        {
+            wavelengthLength = Convert.ToInt32(textBox_WavelengthLength.Text) -2;
+        }
+
+        private void textbox_WavelengthStart_TextChanged(object sender, EventArgs e)
+        {
+            wavelengthStart = textbox_WavelengthStart.Text + ";";            
         }
 
 
